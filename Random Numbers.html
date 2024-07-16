@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Numbers</title>
+  </head>
+  <body>
+    <script>
+      // Program 1 :Generate a random number between 1 and 100 and print it to the console. 4 marks
+
+      console.log(
+        "Random NUmber From 1 to 100 : " + Math.floor(Math.random() * 100)
+      );
+
+      // Program 2 : Create a program that generates a random number between two user-inputted numbers. 4 marks
+
+      let min = parseInt(prompt("Enter Min Num : "), 10);
+      let max = parseInt(prompt("Enter Max Num : "), 10);
+
+      console.log(
+        "Random number between " +
+          min +
+          " and " +
+          max +
+          ": " +
+          parseInt(Math.floor(Math.random() * (max - min + 1)) + min)
+      );
+
+      // Program 3: Simulate a coin toss by generating a random number (0 or 1) and print "Heads" or "Tails" accordingly.
+
+      let Random = Math.floor(Math.random() * 2);
+      console.log(Random);
+      if (Random === 0) {
+        console.log("Heads");
+      } else {
+        console.log("Tails");
+      }
+
+      // Program 4: RANDOM PASSWORD GENERATOR PROGRAM
+      const passLimit =
+        "ABCDEFGHIJKLMNOPQRSTUNVWXYZabcdefghijklmnopqrstuvwxyz1234567890!#$%&@";
+      let password = "";
+      for (let i = 0; i < 15; i++) {
+        password += passLimit.charAt(
+          Math.floor(Math.random() * passLimit.length)
+        );
+      }
+      console.log("Your Password : " + password);
+    </script>
+  </body>
+</html>

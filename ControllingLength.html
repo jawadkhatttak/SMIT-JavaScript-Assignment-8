@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ControllingLength</title>
+  </head>
+  <body>
+    <script>
+      // Program 1: Use toFixed() to format the number 123.45678 to two decimal places.
+
+      let num = 123.45678;
+      console.log("Fixing its size to 2 decimals : " + num.toFixed(2));
+
+      // Program 2: Use toFixed() to format the number 123.45678 to four decimal places.
+
+      let num1 = 123.45678;
+      console.log("Fixing its size to 2 decimals : " + num1.toFixed(4));
+
+      // Program 3: Write a program that takes a number input and formats it to a specified number of decimal places using toFixed().
+
+      let number = Number(prompt("Type any Float number : "));
+      let numberOfDecimals = Number(
+        prompt("Type any number of decimals you want in previous number : ")
+      );
+
+      console.log(
+        "Your Oriignal Float Number : " +
+          number +
+          "\nAnswer : " +
+          number.toFixed(numberOfDecimals)
+      );
+    </script>
+  </body>
+</html>

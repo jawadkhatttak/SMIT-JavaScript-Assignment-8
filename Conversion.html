@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversion</title>
+  </head>
+  <body>
+    <script>
+      // Program 1: Convert the string "123" to an integer and print its value.
+
+      let string = "123";
+      console.log(parseInt(string));
+      console.log(typeof parseInt(string));
+
+      // Program 2: Convert the string "123.45" to a decimal and print its value.
+
+      let string1 = "123.45";
+      console.log(parseFloat(string1));
+      console.log(typeof parseFloat(string1));
+
+      // Program 3: Write a program that takes a string input and converts it to an integer or decimal (depending on the input).
+
+      let string2 = prompt("Enter any Number : ");
+      console.log(Number(string2));
+      console.log(typeof Number(string2));
+
+      // Program 4: Convert the string "123" to a number and print its value.
+
+      let string3 = "123";
+      console.log(Number(string3));
+      console.log(typeof Number(string3));
+
+      // Program 5: Convert the number 123 to a string and print its value.
+
+      let num = 123;
+      console.log(num.toString());
+      console.log(typeof num.toString());
+
+      // Program 6: Write a program that takes a input (string or number) and converts it to the opposite type (number or string)
+
+      let choice = Number(
+        prompt("What value do you want to put: \n1. String \n2. Number")
+      );
+
+      let unknown;
+
+      if (choice === 1) {
+        unknown = prompt("Enter a string: ");
+        console.log("Original type of unknown: " + typeof unknown);
+
+        let convertedToNumber = Number(unknown);
+        if (isNaN(convertedToNumber)) {
+          console.log("Cannot convert to number, result is NaN.");
+        } else {
+          console.log("Converted to number: " + convertedToNumber);
+          console.log("Type after conversion: " + typeof convertedToNumber);
+        }
+      } else if (choice === 2) {
+        unknown = Number(prompt("Enter a number: "));
+        if (isNaN(unknown)) {
+          console.log("Invalid number input.");
+        } else {
+          console.log("Original type of unknown: " + typeof unknown);
+          console.log("Converted to string: " + unknown.toString());
+          console.log("Type after conversion: " + typeof unknown.toString());
+        }
+      } else {
+        console.log("Invalid input. Please refresh the page and try again.");
+        throw new Error("Invalid input.");
+      }
+    </script>
+  </body>
+</html>

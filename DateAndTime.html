@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Getting the current date and time
+      // Program 1: Print the current date and time to the console.
+
+      console.log(new Date().toString());
+
+      // Program 2: Print the current date and time in a specific format (e.g. "YYYY-MM-DD HH:mm:ss").
+
+      console.log(new Date().toISOString());
+
+      // Program 3: Write a program that returns the current date and time as a string.
+
+      console.log(new Date().toString());
+
+      // Program 4: AGE CALCULATOR BY BIRTHDATE
+
+      let DOB = new Date(
+        prompt("Please enter Your birth date : \nFormat : 14 Dec, 2000")
+      );
+      console.log(DOB);
+      let monthh = new Date().getMonth() - DOB.getMonth();
+      let yearr = new Date().getFullYear() - DOB.getFullYear();
+
+      if (monthh < 0) {
+        yearr--;
+        monthh += 12;
+      }
+
+      console.log("you are " + monthh + " Months And " + yearr + " Years Old!");
+
+      //   Extracting parts of date and time
+      //   Program 1: Extract the year from the current date and print it to the console.
+
+      console.log("Extracting Year : " + new Date().getFullYear());
+
+      // Program 2: Extract the month from the current date and print it to the console.
+
+      console.log("Extracting Month : " + new Date().getMonth());
+
+      // Program 3: Write a program that takes a date input and extracts the day, month, and year as separate values.
+
+      let nowTime = new Date(
+        prompt("Please enter Your birth date : \nFormat : 14 Dec, 2000")
+      );
+      const daysName = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      console.log("Extracting Day from Input : " + daysName[nowTime.getDay()]);
+      console.log("Extracting Month from Input : " + nowTime.getMonth());
+      console.log("Extracting Year from Input : " + nowTime.getFullYear());
+
+      // Specifying a Date and Time
+      // Program 1: Create a Date object for a specific date and time (e.g. January 1, 2022 12:00:00).
+
+      console.log(new Date(2022, 0, 1, 12, 0, 0));
+
+      // Program 2: Create a Date object for a specific date and time using user-inputted values.
+
+      let timeInput = prompt(
+        "Please enter time:\nFormat: Year, Month, Date, Hour, Minute, Second (e.g., 2022, 1, 1, 12, 0, 0)"
+      );
+
+      // Split the input string into an array of components
+      let timeComponents = timeInput.split(",");
+
+      if (timeComponents.length === 6) {
+        let [year, month, date, hour, minute, second] =
+          timeComponents.map(Number);
+
+        let specificDate = new Date(
+          year,
+          month - 1,
+          date,
+          hour,
+          minute,
+          second
+        );
+
+        console.log("Specific date and time:", specificDate);
+      } else {
+        console.log(
+          "Invalid input. Please enter the date and time in the specified format."
+        );
+      }
+
+      // Program 3: Write a program that takes a string input (e.g. "2022-01-01 12:00:00") and creates a Date object from it.
+
+      let string = prompt("Please enter time:\nFormat: 2022-01-01 12:00:00");
+      console.log(new Date(string));
+
+      //   Changing Elements of a Date and Time
+      //   Program 1: Add one day to the current date and print the new date.
+
+      let Current = new Date();
+      console.log("Current Date:", Current);
+
+      Current.setDate(Current.getDate() + 1);
+      console.log("New Date:", Current);
+
+      // Program 2: Subtract one hour from the current time and print the new time.
+
+      let Timee = new Date();
+      console.log("Current Date:", Timee);
+
+      Timee.setHours(Timee.getHours() - 1);
+      console.log("New Date:", Timee);
+
+      // Program 3: Write a program that takes a Date object and adds or subtracts a specified number of days, hours, or minutes.
+
+      // Get user input for date and time
+      let TakenDate = prompt(
+        "Please enter Date & time:\nFormat: Year, Month, Date, Hour, Minute, Second (e.g., 2022, 1, 1, 12, 0, 0)"
+      );
+
+      // Split the input and convert to numbers
+      TakenDate = TakenDate.split(",").map(Number);
+      let [year1, month1, date, hour, minute, second] = TakenDate;
+
+      let dateObj = new Date(year1, month1 - 1, date, hour, minute, second); // Month is 0-indexed
+      console.log("Your Date: " + dateObj);
+
+      let addOrRemove = Number(
+        prompt("What operation do you want : \n1. Subtracting \n2. Adding")
+      );
+      let valuee = Number(
+        prompt(
+          "Enter type: \n1. Number of Days \n2. Number of Hours \n3. Number of Minutes"
+        )
+      );
+      let amount = Number(prompt("How many : "));
+
+      if (addOrRemove === 1) {
+        // Subtract
+        if (valuee === 1) {
+          dateObj.setDate(dateObj.getDate() - amount);
+          console.log("Date Updated: " + dateObj);
+        } else if (valuee === 2) {
+          dateObj.setHours(dateObj.getHours() - amount);
+          console.log("Hours Updated: " + dateObj);
+        } else if (valuee === 3) {
+          dateObj.setMinutes(dateObj.getMinutes() - amount);
+          console.log("Minutes Updated: " + dateObj);
+        } else {
+          console.log("You have entered an invalid value.");
+          throw new Error("Invalid Value");
+        }
+      } else if (addOrRemove === 2) {
+        // Add
+        if (valuee === 1) {
+          dateObj.setDate(dateObj.getDate() + amount);
+          console.log("Date Updated: " + dateObj);
+        } else if (valuee === 2) {
+          dateObj.setHours(dateObj.getHours() + amount);
+          console.log("Hours Updated: " + dateObj);
+        } else if (valuee === 3) {
+          dateObj.setMinutes(dateObj.getMinutes() + amount);
+          console.log("Minutes Updated: " + dateObj);
+        } else {
+          console.log("You have entered an invalid value.");
+          throw new Error("Invalid Value");
+        }
+      } else {
+        console.log("You have entered an invalid value.");
+        throw new Error("Invalid Value");
+      }
+
+      // Program 3: Countdown Timer: Write a JavaScript program to create a countdown timer that displays the remaining time until a specific date and time.
+
+      let specificTimeInput = prompt(
+        "Please enter Date & time:\nFormat: Year, Month, Date, Hour, Minute, Second (e.g., 2024, 6, 15, 10, 50, 0)"
+      );
+
+      // Split the input and convert to numbers
+      let specificTimeArray = specificTimeInput.split(",").map(Number);
+      let [year2, month2, date2, hour2, minute2, second2] = specificTimeArray;
+
+      let targetDate = new Date(
+        year2,
+        month2 - 1,
+        date2,
+        hour2,
+        minute2,
+        second2
+      ); // Month is 0-indexed in JavaScript
+
+      console.log("Real Time Now: " + new Date());
+      console.log("Countdown set at: " + targetDate);
+
+      // Update the countdown every second
+      let intervalId = setInterval(function () {
+        let now = new Date().getTime();
+        let distance = targetDate.getTime() - now;
+
+        if (distance < 0) {
+          console.log("Countdown is over!");
+          clearInterval(intervalId);
+        } else {
+          // Time calculations for days, hours, minutes, and seconds
+          let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          let hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // Output the result in a human-readable format
+          console.log(
+            "Countdown: " +
+              days +
+              "d " +
+              hours +
+              "h " +
+              minutes +
+              "m " +
+              seconds +
+              "s "
+          );
+        }
+      }, 1000);
+
+      // Program 4: Schedule Appointment: Write a JavaScript program to schedule an appointment for a specific date and time.
+
+      // Get user input for date and time
+      let appointmentInput = prompt(
+        "Please enter the appointment date & time:\nFormat: Year, Month, Date, Hour, Minute, Second\nExample: 2024, 7, 14, 15, 30, 0"
+      );
+
+      // Split the input and convert to numbers
+      let appointmentArray = appointmentInput.split(",").map(Number);
+      let [year3, month3, date3, hour3, minute3, second3] = appointmentArray;
+
+      // Create a Date object for the appointment
+      let appointmentDate = new Date(
+        year3,
+        month3 - 1,
+        date3,
+        hour3,
+        minute3,
+        second3
+      ); // Month is 0-indexed in JavaScript
+
+      // Check if the input date is valid and in the future
+      if (appointmentDate.getTime() <= new Date().getTime()) {
+        console.log("Invalid appointment date. Please enter a future date.");
+      } else {
+        console.log("Appointment scheduled for: " + appointmentDate);
+      }
+
+      // Now Code for Countdown
+      let intervalId1 = setInterval(function () {
+        let now = new Date().getTime(); //trying to get milliseconds
+        let distance = appointmentDate.getTime() - now;
+        if (distance < 0) {
+          clearInterval(intervalId1);
+          console.log("Countdown Has Finished, it's appointment Time!");
+        } else {
+          // Time calculations for days, hours, minutes, and seconds
+          let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          let hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // Output the result in a human-readable format
+          console.log(
+            "Countdown: " +
+              days +
+              "d " +
+              hours +
+              "h " +
+              minutes +
+              "m " +
+              seconds +
+              "s "
+          );
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
